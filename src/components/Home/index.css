@@ -1,0 +1,155 @@
+.home-bg-container {
+  min-height: 100vh;
+}
+
+.home-container {
+  background-color: #f5f7fa;
+  min-height: 100%;
+}
+.nxtbooks-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.nxtbooks-title {
+  font-weight: 600;
+  font-size: 36px;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+.nxtbooks-desc {
+  color: #475569;
+  font-size: 20px;
+  font-weight: 400;
+}
+.find-button-sm {
+  width: 120px;
+  height: 40px;
+  color: #ffffff;
+  background-color: #0284c7;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.slick-bg-container {
+  background-color: #ffffff;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1e293b;
+  padding: 10px;
+  border-radius: 10px;
+}
+.slick-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0px;
+}
+.slick-item {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.slick-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-image {
+  width: 180px;
+  max-height: 160px;
+  margin: 0px;
+  border-radius: 2px;
+}
+.slick-cont {
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+.slider {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-title {
+  color: #334155;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+.slick-author {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  color: #475569;
+}
+.slick-prev:before {
+  color: #989898;
+}
+.slick-next:before {
+  color: #989898;
+}
+.top_rated_title {
+  color: #1e293b;
+  font-weight: 600;
+  line-height: 24px;
+  font-size: 24px;
+  margin: 0px;
+  margin-bottom: 0px;
+  margin-right: 30px;
+}
+
+.top-rated-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.find-button-lg {
+  width: 120px;
+  height: 40px;
+  color: #ffffff;
+  background-color: #0284c7;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  font-size: 14px;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .find-button-lg {
+    display: block;
+  }
+  .home-container {
+    padding: 50px;
+  }
+  .nxtbooks-title {
+    font-size: 40px;
+  }
+  .nxtbooks-desc {
+    font-size: 20px;
+  }
+  .top_rated_title {
+    font-size: 28px;
+    margin-left: 50px;
+  }
+  .find-button-sm {
+    display: none;
+  }
+}
