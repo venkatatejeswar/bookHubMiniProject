@@ -132,6 +132,36 @@
   font-size: 14px;
   display: none;
 }
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.failure_title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #475569;
+}
+.tryagain_btn {
+  background-color: #0284c7;
+  width: 80px;
+  height: 30px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-weight: 500;
+  border-radius: 5px;
+}
 @media screen and (min-width: 768px) {
   .find-button-lg {
     display: block;

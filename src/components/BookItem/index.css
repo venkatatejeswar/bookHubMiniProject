@@ -1,0 +1,74 @@
+.book-item {
+  margin: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 400px;
+}
+.coverpic-container {
+  width: 130px;
+  height: 160px;
+  margin-right: 12px;
+}
+.coverpic {
+  width: 130px;
+  height: 160px;
+  border-radius: 4px;
+}
+.bookitem-details-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 70%;
+  padding: 0px;
+  padding-right: 0px;
+}
+.title {
+  color: #334155;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin: 0px;
+  padding-left: 0px;
+}
+.rating-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+.status {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.read-status {
+  color: #0284c7;
+  font-size: 12px;
+  font-weight: 600;
+}
+.rating-title {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+}
+.star {
+  width: 20px;
+  height: 20px;
+  color: #fbbf24;
+}
+.rating {
+  color: #334155;
+  font-weight: 500;
+  font-size: 12px;
+}
+.link {
+  text-decoration: none;
+}

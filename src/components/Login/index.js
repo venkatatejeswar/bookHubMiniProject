@@ -1,16 +1,17 @@
 import {Component} from 'react'
 import './index.css'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 
 class Login extends Component {
   state = {username: '', password: '', showError: false, errorMsg: ''}
 
   onUsername = e => {
-    this.setState({username: e.target.value})
+    this.setState({username: e.target.value, showError: false})
   }
 
   onPassword = e => {
-    this.setState({password: e.target.value})
+    this.setState({password: e.target.value, showError: false})
   }
 
   onFormSubmit = async event => {
@@ -26,12 +27,24 @@ class Login extends Component {
     const data = await response.json()
     if (response.ok === true) {
       Cookies.set('jwt_token', data.jwt_token, {expires: 30})
+      this.setState({showError: false, username: '', password: ''})
+    } else {
+      this.setState({
+        showError: true,
+        errorMsg: data.error_msg,
+        username: '',
+        password: '',
+      })
     }
   }
 
   render() {
+    const {username, password} = this.state
     const jwtToken = Cookies.get('jwt_token')
-    console.log(jwtToken)
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
+    const {showError, errorMsg} = this.state
     return (
       <div className="login_container">
         <img
@@ -62,6 +75,7 @@ class Login extends Component {
               className="input"
               placeholder="Enter Username"
               onChange={this.onUsername}
+              value={username}
             />
             <label htmlFor="username" className="label">
               Password*
@@ -72,7 +86,9 @@ class Login extends Component {
               className="input"
               placeholder="Enter Password"
               onChange={this.onPassword}
+              value={password}
             />
+            {showError && <p className="error-msg">{errorMsg}</p>}
             <button className="login_btn" type="submit">
               Login
             </button>

@@ -1,0 +1,83 @@
+.book-details-container {
+  min-height: 100vh;
+}
+.books-container {
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80vh;
+}
+.failure_title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #475569;
+}
+.tryagain_btn {
+  background-color: #0284c7;
+  width: 80px;
+  height: 30px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.bookdetails-success-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 25px;
+}
+.rating-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+.rating-title {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+}
+.star {
+  width: 20px;
+  height: 20px;
+  color: #fbbf24;
+}
+.rating {
+  color: #334155;
+  font-weight: 500;
+  font-size: 12px;
+}
+.status {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.read-status {
+  color: #0284c7;
+  font-size: 12px;
+  font-weight: 600;
+}

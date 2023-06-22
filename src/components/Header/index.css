@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px;
   background-color: #ffffff;
   height: 80px;
@@ -14,4 +15,39 @@
   width: 30px;
   height: 30px;
   color: #47556990;
+}
+.menu-list {
+  list-style-type: none;
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+}
+.link {
+  text-decoration: none;
+}
+.menu-item {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 10px;
+}
+.logout-btn {
+  width: 80px;
+  height: 34px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 4px;
+  background-color: #0284c7;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  .menu-list {
+    display: flex;
+  }
 }

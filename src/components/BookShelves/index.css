@@ -1,0 +1,134 @@
+.bookshelves-container {
+  min-height: 100vh;
+}
+.books-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 25px;
+}
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.input {
+  width: 360px;
+  height: 36px;
+  border: 1px solid #cbd5e1;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+.search-btn {
+  background-color: #edeff1;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  height: 36px;
+  width: 46px;
+  border: 1px solid #cbd5e1;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.search-icon {
+  color: #94a3b8;
+  width: 25px;
+  height: 25px;
+}
+.filters-container {
+  display: flex;
+  flex-direction: column;
+}
+.bookshelves-filters {
+  width: 100%;
+  margin-top: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+.bookshelves-title {
+  color: #334155;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+}
+.filter-btn {
+  margin: 20px;
+  width: max-content;
+  height: 32px;
+  border-radius: 32px;
+  border: 2px solid #0284c7;
+  color: #0284c7;
+  font-weight: 600;
+  background-color: transparent;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.active-filter-btn {
+  margin: 20px;
+  width: max-content;
+  height: 32px;
+  border-radius: 32px;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: transparent;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #0284c7;
+  border: none;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.failure_title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #475569;
+}
+.tryagain_btn {
+  background-color: #0284c7;
+  width: 80px;
+  height: 30px;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.bookslist-container {
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+}
+.books-listitems {
+  list-style-type: none;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+}
