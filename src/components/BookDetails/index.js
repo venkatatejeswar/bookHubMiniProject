@@ -2,7 +2,8 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import './index.css'
 import Loader from 'react-loader-spinner'
-import {AiFillStar} from 'react-icons/ai'
+import {BsFillStarFill} from 'react-icons/bs'
+import {Redirect} from 'react-router-dom'
 import Header from '../Header'
 import Footer from '../Footer'
 
@@ -57,7 +58,7 @@ class BookDetails extends Component {
   }
 
   renderLoader = () => (
-    <div className="loader-container" testid="loader">
+    <div className="bookdetails-loader-container" testid="loader">
       <Loader type="TailSpin" color="#0284C7" height={50} width={50} />
     </div>
   )
@@ -66,7 +67,7 @@ class BookDetails extends Component {
     <div className="failure-container">
       <img
         src="https://res.cloudinary.com/dlkp3zido/image/upload/v1687363413/failure_img_ur7hnb.png"
-        alt="failure logo"
+        alt="failure view"
       />
       <p className="failure_title">Something went wrong, Please try again.</p>
       <button type="button" className="tryagain_btn" onClick={this.onTryAgain}>
@@ -88,22 +89,30 @@ class BookDetails extends Component {
     } = bookdetails
     return (
       <div className="bookdetails-success-container">
-        <img src={coverPic} alt="coverpic" />
-        <h1>{title}</h1>
-        <p>{authorName}</p>
-        <div className="rating-container">
-          <p className="rating-title">Avg Rating</p>
-          <AiFillStar className="star" />
-          <p className="rating">{rating}</p>
+        <div className="bookdetails-card-container">
+          <div className="book-info-container">
+            <img src={coverPic} alt={title} className="coverpic" />
+            <div className="info-container">
+              <h1 className="title">{title}</h1>
+              <p className="author">{authorName}</p>
+              <div className="rating-container">
+                <p className="rating-title">Avg Rating</p>
+                <BsFillStarFill className="star" />
+                <p className="rating">{rating}</p>
+              </div>
+              <p className="status">
+                Status: <span className="read-status">{readStatus}</span>
+              </p>
+            </div>
+          </div>
+          <hr className="h-rule" />
+          <div className="about-container">
+            <h1 className="about-title">About Author</h1>
+            <p className="about-desc">{aboutAuthor}</p>
+            <h1 className="about-title">About Book</h1>
+            <p className="about-desc">{aboutBook}</p>
+          </div>
         </div>
-        <p className="status">
-          Status: <span className="read-status">{readStatus}</span>
-        </p>
-        <hr width="100%" />
-        <h1>About Author</h1>
-        <p>{aboutAuthor}</p>
-        <h1>About Book</h1>
-        <p>{aboutBook}</p>
         <Footer />
       </div>
     )
@@ -124,10 +133,14 @@ class BookDetails extends Component {
   }
 
   render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken === undefined) {
+      return <Redirect to="/login" />
+    }
     return (
       <div className="book-details-container">
         <Header />
-        <div className="books-container">{this.renderviews()}</div>
+        <div className="bookdetails-container">{this.renderviews()}</div>
       </div>
     )
   }

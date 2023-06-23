@@ -1,7 +1,8 @@
 .book-details-container {
   min-height: 100vh;
+  background-color: #f5f7fa;
 }
-.books-container {
+.bookdetails-container {
   padding: 30px;
   width: 100%;
   display: flex;
@@ -9,11 +10,12 @@
   align-items: center;
   margin-top: 0px;
 }
-.loader-container {
+.bookdetails-loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
+  min-height: 90vh;
 }
 .failure-container {
   display: flex;
@@ -46,9 +48,31 @@
   align-items: center;
   padding: 25px;
 }
+
+.bookdetails-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 25px;
+}
+.book-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+}
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .rating-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -56,28 +80,121 @@
 }
 .rating-title {
   color: #475569;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
 }
 .star {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  margin-right: 8px;
   color: #fbbf24;
 }
 .rating {
   color: #334155;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 16px;
 }
 .status {
   color: #475569;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 600;
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+.h-rule {
+  width: 100%;
+  color: #94a3b8;
+  text-align: center;
+}
 .read-status {
   color: #0284c7;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 600;
+}
+.coverpic {
+  width: 240px;
+  height: 280px;
+  border-radius: 10px;
+  margin-top: 0px;
+}
+.title {
+  color: #334155;
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.author {
+  color: #475569;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.about-title {
+  color: #334155;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 0px;
+}
+.about-desc {
+  color: #475569;
+  font-size: 18px;
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .book-info-container {
+    flex-direction: row;
+  }
+  .bookdetails-card-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    width: 75vw;
+    padding: 40px;
+  }
+  .info-container {
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .rating-container {
+    justify-content: flex-start;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .author {
+    font-size: 24px;
+  }
+  .rating-title {
+    font-size: 24px;
+  }
+  .star {
+    width: 32px;
+    height: 32px;
+  }
+  .rating {
+    font-size: 24px;
+  }
+  .status {
+    font-size: 24px;
+  }
+  .read-status {
+    font-size: 24px;
+  }
+  .about-title {
+    font-size: 24px;
+  }
+  .about-desc {
+    font-size: 24px;
+  }
 }

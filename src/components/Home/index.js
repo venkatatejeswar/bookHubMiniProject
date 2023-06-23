@@ -2,7 +2,7 @@ import './index.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import Footer from '../Footer'
@@ -69,36 +69,40 @@ class Home extends Component {
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 768,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
           },
         },
         {
-          breakpoint: 480,
+          breakpoint: 360,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 1,
             slidesToScroll: 1,
           },
         },
       ],
     }
     return (
-      <Slider {...settings}>
-        {topRatedBooks.map(eachBook => {
-          const {id, authorName, coverPic, title} = eachBook
-          return (
-            <li className="slick-item" key={id}>
-              <div className="slick-img-container">
-                <img className="logo-image" src={coverPic} alt="cover" />
-              </div>
-              <h1 className="slick-title">{title}</h1>
-              <p className="slick-author">{authorName}</p>
-            </li>
-          )
-        })}
-      </Slider>
+      <ul className="slider-list-container">
+        <Slider {...settings}>
+          {topRatedBooks.map(eachBook => {
+            const {id, authorName, coverPic, title} = eachBook
+            return (
+              <Link to={`/books/${id}`} className="link" key={id}>
+                <li className="slick-item">
+                  <div className="slick-img-container">
+                    <img className="logo-image" src={coverPic} alt="cover" />
+                  </div>
+                  <h1 className="slick-title">{title}</h1>
+                  <p className="slick-author">{authorName}</p>
+                </li>
+              </Link>
+            )
+          })}
+        </Slider>
+      </ul>
     )
   }
 
@@ -112,7 +116,7 @@ class Home extends Component {
     <div className="failure-container">
       <img
         src="https://res.cloudinary.com/dlkp3zido/image/upload/v1687363413/failure_img_ur7hnb.png"
-        alt="failure logo"
+        alt="failure view"
       />
       <p className="failure_title">Something went wrong, Please try again.</p>
       <button type="button" className="tryagain_btn" onClick={this.onTryAgain}>
@@ -151,16 +155,20 @@ class Home extends Component {
               enjoyed in the past, and we will give you surprisingly insightful
               recommendations.
             </p>
-            <button className="find-button-sm" type="button">
-              Find Books
-            </button>
+            <Link to="/shelf" className="link">
+              <button className="find-button-sm" type="button">
+                Find Books
+              </button>
+            </Link>
           </div>
           <div className="slick-bg-container">
             <div className="top-rated-container">
-              <p className="top_rated_title">Top Rated Books</p>
-              <button className="find-button-lg" type="button">
-                Find Books
-              </button>
+              <h1 className="top_rated_title">Top Rated Books</h1>
+              <Link to="/shelf" className="link">
+                <button className="find-button-lg" type="button">
+                  Find Books
+                </button>
+              </Link>
             </div>
             <div className="slick-cont">
               <div className="slick-container">{this.renderviews()}</div>

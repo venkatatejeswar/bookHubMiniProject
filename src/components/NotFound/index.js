@@ -5,8 +5,8 @@ const NotFound = () => (
   <div className="notfound-container">
     <img
       src="https://res.cloudinary.com/dlkp3zido/image/upload/v1687422288/Group_7484_xknoi7.png"
-      alt="notfound logo"
-      className="not found"
+      alt="not found"
+      className="notfound-img"
     />
     <h1 className="notfound-title">Page Not Found</h1>
     <p className="notfound-desc">
@@ -14,7 +14,9 @@ const NotFound = () => (
       the homepage.
     </p>
     <Link to="/" className="link">
-      <button className="notfound-btn">Go Back to Home</button>
+      <button className="notfound-btn" type="button">
+        Go Back to Home
+      </button>
     </Link>
   </div>
 )

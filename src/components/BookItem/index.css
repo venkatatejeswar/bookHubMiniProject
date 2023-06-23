@@ -1,19 +1,19 @@
 .book-item {
-  margin: 12px;
+  margin: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  max-width: 400px;
+  width: 280px;
 }
 .coverpic-container {
   width: 130px;
   height: 160px;
   margin-right: 12px;
 }
-.coverpic {
+.shelf-coverpic {
   width: 130px;
   height: 160px;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 .bookitem-details-cont {
   display: flex;
@@ -24,7 +24,7 @@
   padding: 0px;
   padding-right: 0px;
 }
-.title {
+.shelf-title {
   color: #334155;
   font-size: 18px;
   font-weight: 600;
@@ -34,7 +34,7 @@
   margin: 0px;
   padding-left: 0px;
 }
-.rating-container {
+.shelf-rating-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -42,33 +42,39 @@
   margin-bottom: 0px;
   width: 100%;
 }
-.status {
+.shelf-status {
   color: #475569;
   font-size: 12px;
   font-weight: 600;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.read-status {
+.shelf-read-status {
   color: #0284c7;
   font-size: 12px;
   font-weight: 600;
 }
-.rating-title {
+.shelf-rating-title {
   color: #475569;
   font-size: 12px;
   font-weight: 500;
 }
-.star {
+.shelf-star {
   width: 20px;
   height: 20px;
   color: #fbbf24;
 }
-.rating {
+.shelf-rating {
   color: #334155;
   font-weight: 500;
   font-size: 12px;
 }
 .link {
   text-decoration: none;
+}
+.bookitem-author {
+  color: #475569;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0px;
 }

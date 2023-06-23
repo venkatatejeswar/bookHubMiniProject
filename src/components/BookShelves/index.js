@@ -1,8 +1,10 @@
 import {Component} from 'react'
 import './index.css'
-import {AiOutlineSearch} from 'react-icons/ai'
+import {BsSearch} from 'react-icons/bs'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {Redirect} from 'react-router-dom'
+import Footer from '../Footer'
 
 import Header from '../Header'
 import BookItem from '../BookItem'
@@ -35,6 +37,7 @@ const apiConstants = {
   loading: 'LOADING',
   success: 'SUCCESS',
   failure: 'FAILURE',
+  nobooks: 'NO BOOKS',
 }
 
 class BookShelves extends Component {
@@ -62,16 +65,20 @@ class BookShelves extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
-    const updatedData = data.books.map(book => ({
-      id: book.id,
-      authorName: book.author_name,
-      coverPic: book.cover_pic,
-      rating: book.rating,
-      readStatus: book.read_status,
-      title: book.title,
-    }))
     if (response.ok === true) {
-      this.setState({booksList: updatedData, apiStatus: apiConstants.success})
+      if (data.books.length === 0) {
+        this.setState({apiStatus: apiConstants.nobooks})
+      } else {
+        const updatedData = data.books.map(book => ({
+          id: book.id,
+          authorName: book.author_name,
+          coverPic: book.cover_pic,
+          rating: book.rating,
+          readStatus: book.read_status,
+          title: book.title,
+        }))
+        this.setState({booksList: updatedData, apiStatus: apiConstants.success})
+      }
     } else {
       this.setState({apiStatus: apiConstants.failure})
     }
@@ -103,9 +110,9 @@ class BookShelves extends Component {
     <div className="failure-container">
       <img
         src="https://res.cloudinary.com/dlkp3zido/image/upload/v1687363413/failure_img_ur7hnb.png"
-        alt="failure logo"
+        alt="failure view"
       />
-      <p className="failure_title">Something went wrong, Please try again.</p>
+      <p className="failure_title">Something went wrong. Please try again</p>
       <button type="button" className="tryagain_btn" onClick={this.onTryAgain}>
         Try Again
       </button>
@@ -123,6 +130,21 @@ class BookShelves extends Component {
     )
   }
 
+  renderNoBooksView = () => {
+    const {searchText} = this.state
+    return (
+      <div className="failure-container">
+        <img
+          src="https://res.cloudinary.com/dlkp3zido/image/upload/v1687520196/no_result_bfxnwu.png"
+          alt="no books"
+        />
+        <p className="failure_title">
+          Your search for {searchText} did not find any matches.
+        </p>
+      </div>
+    )
+  }
+
   renderviews = () => {
     const {apiStatus} = this.state
     switch (apiStatus) {
@@ -130,46 +152,38 @@ class BookShelves extends Component {
         return this.renderBooksItem()
       case apiConstants.loading:
         return this.renderLoader()
-      case apiConstants.renderFailure:
+      case apiConstants.failure:
         return this.renderFailure()
+      case apiConstants.nobooks:
+        return this.renderNoBooksView()
       default:
         return null
     }
   }
 
   render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken === undefined) {
+      return <Redirect to="/login" />
+    }
     const {bookshelfName, searchText} = this.state
+    const bookShelf = bookshelvesList.find(each => each.value === bookshelfName)
+
     return (
       <div className="bookshelves-container">
         <Header />
-        <div className="books-container">
-          <div className="input-container">
-            <input
-              type="search"
-              className="input"
-              placeholder="Search"
-              value={searchText}
-              onChange={this.onSearchText}
-            />
-            <button
-              type="button"
-              className="search-btn"
-              onClick={this.onSearchClick}
-            >
-              <AiOutlineSearch className="search-icon" />
-            </button>
-          </div>
-          <div className="filters-container">
+        <div className="bookshelves-btm-container">
+          <div className="desktop-filters-container">
             <h1 className="bookshelves-title">Bookshelves</h1>
-            <ul className="bookshelves-filters">
+            <ul className="desktop-bookshelves-filters">
               {bookshelvesList.map(filter => (
                 <li key={filter.id}>
                   <button
                     value={filter.value}
                     className={
                       filter.value === bookshelfName
-                        ? 'active-filter-btn'
-                        : 'filter-btn'
+                        ? 'desktop-active-filter-btn'
+                        : 'desktop-filter-btn'
                     }
                     type="button"
                     onClick={this.onBookshelfName}
@@ -180,7 +194,51 @@ class BookShelves extends Component {
               ))}
             </ul>
           </div>
-          <div className="bookslist-container">{this.renderviews()}</div>
+          <div className="books-container">
+            <div className="allbooks-input-container">
+              <h1 className="allbooks-title">{bookShelf.label} Books</h1>
+              <div className="input-container">
+                <input
+                  type="search"
+                  className="input"
+                  placeholder="Search"
+                  value={searchText}
+                  onChange={this.onSearchText}
+                />
+                <button
+                  type="button"
+                  className="search-btn"
+                  onClick={this.onSearchClick}
+                  testid="searchButton"
+                >
+                  <BsSearch className="search-icon" />
+                </button>
+              </div>
+            </div>
+            <div className="mobile-filters-container">
+              <h1 className="bookshelves-title">Bookshelves</h1>
+              <ul className="bookshelves-filters">
+                {bookshelvesList.map(filter => (
+                  <li key={filter.id}>
+                    <button
+                      value={filter.value}
+                      className={
+                        filter.value === bookshelfName
+                          ? 'active-filter-btn'
+                          : 'filter-btn'
+                      }
+                      type="button"
+                      onClick={this.onBookshelfName}
+                    >
+                      {filter.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bookslist-container">{this.renderviews()}</div>
+            <Footer />
+          </div>
         </div>
       </div>
     )
