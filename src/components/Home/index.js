@@ -2,7 +2,7 @@ import './index.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
-import {Redirect, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import Footer from '../Footer'
@@ -140,10 +140,6 @@ class Home extends Component {
   }
 
   render() {
-    const jwtToken = Cookies.get('jwt_token')
-    if (jwtToken === undefined) {
-      return <Redirect to="/login" />
-    }
     return (
       <div className="home-bg-container">
         <Header />
